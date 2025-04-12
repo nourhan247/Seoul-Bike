@@ -3,8 +3,8 @@
 
 This project is a collaboration with:
 
-- [@shahdayman11](https://github.com/shahdayman11) - Helped with feature development and implementation.
-- [@malakelsayed2](https://github.com/malakelsayed2) - Assisted with debugging, testing, and optimizations.
+- [@shahdayman11](https://github.com/shahdayman11) 
+- [@malakelsayed2](https://github.com/malakelsayed2)
 
 Thanks to both for their valuable contributions!
 
