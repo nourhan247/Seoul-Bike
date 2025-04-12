@@ -8,7 +8,7 @@ This project is a collaboration with:
 
 Thanks to both for their valuable contributions!
 
-In this project, We developed predictive models to estimate the number of rented bikes (Rented Bike Count) using multiple machine learning techniques and feature transformations. We explored both simple and multiple regression models, incorporating polynomial features to capture non-linear relationships. The steps involved include:
+In this project, We conducted a comprehensive analysis using the Seoul Bike Sharing Dataset from Kaggle to build models that predict the number of bikes rented based on environmental and time-related features. The workflow was split into regression and classification tasks, with the following methodology:
 
 Data Preprocessing:
 
@@ -16,22 +16,43 @@ The dataset was split into training and testing sets (90% train, 10% test).
 
 Features like Temperature(°C), Humidity(%), Solar Radiation (MJ/m2), and others were selected based on their influence on bike rentals.
 
-Model Development:
+Regression Models: Predicting Rented Bike Count
+1. Simple Linear Regression
+Feature used: Temperature(°C)
 
-Simple Linear Regression: Initially, a simple linear regression model was built using only Temperature(°C) to predict Rented Bike Count.
+The dataset was split (80/20), scaled using StandardScaler, and used to train a linear regression model.
 
-Multiple Linear Regression: A multiple linear regression model was then created with a broader set of features, including Dew point temperature(°C), Hour, Humidity(%), and others.
+The relationship between temperature and bike rentals was visualized, and model performance was evaluated using R² and MSE.
 
-Polynomial Ridge Regression: Polynomial features (degree 2, 3, and 4) were applied to capture non-linear relationships, followed by Ridge Regression (L2 regularization) to prevent overfitting.
+2. Multiple Linear Regression
+Features used: Top contributors such as Temperature, Humidity, Hour, Dew Point, etc.
 
-Evaluation:
+After scaling, the model was trained and evaluated. A scatter plot comparing actual vs. predicted values was generated.
 
-The models were evaluated using Mean Squared Error (MSE) and R² Score, which measured the accuracy and fit of the models.
+3. Polynomial Ridge Regression
+Explored non-linear relationships by applying polynomial features of degrees 2, 3, and 4.
 
-R² values were reported to assess how well the models explained the variance in the target variable.
+Used Ridge Regression (L2 regularization) to prevent overfitting.
 
-Findings:
+Applied to both:
 
-Ridge Regression with polynomial features improved the model’s ability to capture more complex patterns in the data.
+Simple case with only Temperature
 
-Models with higher polynomial degrees (e.g., degree 4) and additional features showed better prediction accuracy, although regularization (alpha=1) was essential for controlling overfitting.
+Multiple features selected based on feature importance
+
+Model performance was evaluated using R² and MSE, showing improved accuracy with polynomial features and regularization.
+
+Classification Task: Multi-Output Logistic Regression
+4. MultiOutput Logistic Regression
+A classification model was developed using LogisticRegression wrapped in MultiOutputClassifier to predict multiple binary targets simultaneously.
+
+Features were scaled with StandardScaler to ensure equal importance.
+
+The logistic regression model was trained on the training set with max_iter=200 to ensure convergence.
+
+Conclusion:
+Linear and Ridge regression models were effective in modeling bike rental counts, especially when using multiple features and polynomial degrees.
+
+Ridge regularization controlled overfitting and maintained generalization.
+
+The multi-output logistic regression model allowed for simultaneous prediction of multiple binary outcomes, offering insight into feature contributions for each classification task.
